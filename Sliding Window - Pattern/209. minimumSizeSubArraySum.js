@@ -16,4 +16,4 @@ var minSubArrayLen = function (target, nums) {
 	return result != Infinity ? result : 0;
 };
 
-console.log(minSubArrayLen(7, [2, 3, 1, 2, 4, 3]));
+console.log(minSubArrayLen(20, [1, 2, 3, 4, 5, 6, 7, 8]));

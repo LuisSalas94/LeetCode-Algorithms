@@ -13,4 +13,4 @@ var maxSubArray = function (nums) {
 	return maxValue;
 };
 
-console.log(maxSubArray([5, 4, -1, 7, 8]));
+console.log(maxSubArray([8, -6, 4, 5, -2]));
