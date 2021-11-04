@@ -1,4 +1,6 @@
-/* https://www.youtube.com/watch?v=2wVjt3yhGwg&t=591s&ab_channel=JAVAAID-CodingInterviewPreparation */
+/* 
+https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/
+https://www.youtube.com/watch?v=2wVjt3yhGwg&t=591s&ab_channel=JAVAAID-CodingInterviewPreparation */
 
 function twoSum(arr, target) {
 	let start = 0;
