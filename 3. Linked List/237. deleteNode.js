@@ -95,6 +95,8 @@ class LinkedList {
 		return false;
 	}
 
+	//leetcode #142
+
 	//leetcode #203
 	removeElements(head, val) {
 		let dummy = new Node(-1);
@@ -115,6 +117,76 @@ class LinkedList {
 		return dummy.next;
 	}
 
+	//leetcode #02
+	addTwoNumbers(l1, l2) {
+		let carry = 0;
+		let result = new Node(-1);
+		let dummy = result;
+
+		while (l1 || l2 || carry) {
+			let l1Val = l1 ? l1.value : 0;
+			let l2Val = l2 ? l2.value : 0;
+			let nextDigit = (l1Val + l2Val + carry) % 10;
+			result.next = new Node(nextDigit);
+			result = result.next;
+			carry = Math.floor((l1Val + l2Val + carry) / 10);
+			l1 = l1 ? l1.next : null;
+			l2 = l2 ? l2.next : null;
+		}
+		return dummy.next;
+	}
+
+	//leetcode #19 ***
+	removeNthFromEnd(head, n) {
+		let dummyHead = new Node(-Infinity, head);
+		dummyHead.next = head;
+		let resultHead = dummyHead;
+		let count = 0;
+		let tail = head;
+
+		while (count < n) {
+			count++;
+			tail = tail.next;
+		}
+
+		let removedNode = head;
+		let prev = dummyHead;
+
+		while (tail) {
+			tail = tail.next;
+			removedNode = removedNode.next;
+			prev = prev.next;
+		}
+
+		prev.next = removedNode.next;
+		return resultHead.next;
+	}
+
+	//leetcode #82
+	deleteDuplicates(head) {
+		if (!head) return null;
+		let dummy = new Node(-Infinity, head);
+		let prev = dummy;
+		let current = head;
+		let next = current.next;
+
+		while (current) {
+			if (current && next && current.value === next.value) {
+				while (next && current.value === next.value) {
+					next = next.next;
+				}
+				prev.next = next;
+				current = next;
+				next = next ? next.next : null;
+			} else {
+				prev = current;
+				current = next;
+				next = next ? next.next : null;
+			}
+		}
+		return dummy.next;
+	}
+
 	print() {
 		let arr = [];
 		let current = this.head;
@@ -130,6 +202,11 @@ const list = new LinkedList();
 //const list2 = new LinkedList();
 list.push(1);
 list.push(2);
-list.push(6);
+list.push(3);
+list.push(4);
+list.push(5);
 
-console.log(list.print());
+console.log(list.removeNthFromEnd(list.head, 2));
+//console.log(list.addTwoNumbers(list.head, list2.head));
+//list.deleteDuplicates(list.head);
+//console.log(list.print());
