@@ -136,7 +136,7 @@ class LinkedList {
 		return dummy.next;
 	}
 
-	//leetcode #19 ***
+	//leetcode #19
 	removeNthFromEnd(head, n) {
 		let dummyHead = new Node(-Infinity, head);
 		dummyHead.next = head;
